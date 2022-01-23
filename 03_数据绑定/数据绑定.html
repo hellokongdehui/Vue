@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据绑定</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+  <div id="root">
+    单向数据绑定：<input type="text" v-bind:value="name" /><br/>
+    双向数据绑定：<input type="text" v-model="name">
+  </div>
+</body>
+
+<script>
+  Vue.config.productionTip = false;
+  
+  new Vue({
+    el:"#root",
+    data:{
+      name:"字节跳动"
+    }
+  })
+</script>
+
+<!--
+   Vue中有两种数据绑定方式：
+    1. 单向绑定(v-bind)：数据只能从data流向页面；
+    2. 双向绑定(v-model)：数据不仅可以从data流向页面，还能从页面流向data。
+      备注：(1). 双向绑定一般都是应用在表单类元素上(如input、select等)；
+            (2). v-model:value 可以简写为 v-model，因为v-model默认收集value值。
+ -->
+</html>
