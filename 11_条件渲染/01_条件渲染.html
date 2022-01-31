@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>条件渲染</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+  <div id="root">
+    <h2>当前的值是:{{n}}</h2>
+    <button @click="n++">点击n+1</button>
+
+    <!-- 使用v-show做条件渲染 -->
+    <!-- <h2 v-show="false">欢迎加入{{name}}!</h2> -->
+    <!-- <h2 v-show="n === 1">欢迎加入{{name}}工作!</h2> --> 
+
+    <!-- 使用v-if做条件渲染 -->
+    <!-- <h2 v-if="true">欢迎加入{{name}}!</h2> -->
+    <!-- <h2 v-show="n === 1">欢迎加入{{name}}工作!</h2> -->
+
+    <!-- v-else和v-else-if -->
+    <!-- <h2 v-if="n === 1">angular</h2>
+    <h2 v-else-if="n === 2">react</h2>
+    <h2 v-else-if="n === 3">vue</h2>
+    <h2 v-else>无</h2> -->
+
+    <!-- v-if和template的配合使用 -->
+    <template v-if="n === 1">
+      <p>腾讯</p>
+      <p>阿里巴巴</p>
+      <p>字节跳动</p>
+    </template>
+
+  </div>
+
+  <script>
+    Vue.config.productionTip = false
+
+    new Vue({
+      el:"#root",
+      data:{
+        name:"字节跳动",
+        n: 0
+      }
+    })
+  </script>
+</body>
+
+<!-- 
+  条件渲染：
+    1. v-if
+      写法:
+        (1) v-if="表达式"
+        (2) v-else-if="表达式"
+        (3) v-else
+      适用于：切换频率较低的场景
+      特点：不展示的DOM元素被直接移除
+      注意：v-if和v-else-if、v-else可以一起使用，但要求结构不能被“打断”
+
+    2. v-show
+      写法：v-show="表达式"
+      适用于：切换频率较高的场景
+      特点：不展示的DOM元素不会被移除，仅仅是使用样式隐藏掉
+
+    3. 备注：使用v-if时，元素可能无法被获取，而使用v-show则可以保证获取到。
+ -->
+</html>
