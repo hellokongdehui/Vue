@@ -10,7 +10,7 @@ export default {
   name:"Employee",
   data() {
     return {
-      employeeName:"腾讯微信",
+      employeeName:"腾信",
       age:26
     }
   },
